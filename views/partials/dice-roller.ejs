@@ -1,0 +1,34 @@
+<div class="container hidden" id="diceContainer">
+    <h1>Dice Roller</h1>
+    
+    <div class="dice-select">
+        <label for="diceType1">Choose first dice: </label>
+        <select id="diceType1">
+            <option value="none">None</option>
+            <option value="4">D4</option>
+            <option value="6">D6</option>
+            <option value="8">D8</option>
+            <option value="10">D10</option>
+            <option value="12">D12</option>
+            <option value="20" selected>D20</option>
+        </select>
+    </div>
+    <div class="dice-select">
+        <label for="diceCount1">Number of first dice: </label>
+        <input type="number" id="diceCount1" min="1" max="20" value="1">
+    </div>
+    <div class="dice-select">
+        <label for="diceType2">Choose second dice: </label>
+        <select id="diceType2">
+            <option value="none">None</option>
+            <option value="4">D4</option>
+            <option value="6">D6</option>
+            <option value="8">D8</option>
+            <option value="10">D10</option>
+            <option value="12">D12</option>
+            <option value="20">D20</option>
+        </select>
+    </div>
+    <button onclick="rollDice()">Roll Dice</button>
+    <p id="result"></p>
+</div>

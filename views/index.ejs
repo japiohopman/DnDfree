@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+<button type="button">submit</button>
+<a href="/character-details">Character Details</a>
+<button class="tap1" onclick="saveFormData('sheet1')">magic</button>
+<button class="saveButton button" onclick="saveFormData('sheet1')">Save</button>
+
+<button class="toggle-button xptap" onclick="toggleXPContainer()">⚙️</button>
+<div class="container hidden" id="XPContainer">
+    <button onclick="clickButton()">submit XP</button>
+</div>
+
+<%- include('partials/dice-roller') %>
+
+<form class="charsheet" id="sheet1">
+    <img class="characterPortet" src="/images/Ava.png" alt="rogue thief">
+    <%- include('partials/character-form') %>
+</form>
