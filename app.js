@@ -45,11 +45,36 @@ function loadData(event) {
     reader.readAsText(file);
 }
 
+// Function to save form data and export it as a JSON file
+function saveFormData(formId) {
+    const form = document.getElementById(formId);
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+    const dataStr = JSON.stringify(data);
+    const blob = new Blob([dataStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "form-data.json";
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
 // Add event listeners for save and load buttons
 // Note: These event listeners will not work in a Node.js environment
 // They are typically used in a browser environment
 // document.getElementById("saveButton").addEventListener("click", saveData);
 // document.getElementById("loadInput").addEventListener("change", loadData);
+
+document.querySelectorAll('#page-flip > div').forEach((page, index) => {
+    page.addEventListener('click', () => {
+        const isEven = index % 2 === 0;
+        page.style.transform = isEven ? `rotateY(-180deg)` : `rotateY(0deg)`;
+    });
+});
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
